@@ -23,7 +23,7 @@ if [ ! -z "$USE_ERL_SHELL" ]; then
         -remsh "$NAME" \
         -setcookie "$COOKIE"
 else
-    iex --erl "-hidden -kernel net_ticktime $TICKTIME" \
+    iex --erl "-hidden -kernel net_ticktime $TICKTIME -kernel logger_sasl_compatible true" \
         --logger-sasl-reports false \
         -"$NAME_TYPE" "$id" \
         --cookie "$COOKIE" \
