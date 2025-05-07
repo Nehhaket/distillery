@@ -367,6 +367,7 @@ release_remote_ctl() {
     command="$1"; shift
     name="${PEERNAME:-$NAME}"
     elixir -e "Distillery.Releases.Runtime.Control.main" \
+           --erl "-kernel logger_sasl_compatible true" \
            --logger-sasl-reports false \
            -- \
            "$command" \
