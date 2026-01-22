@@ -355,6 +355,7 @@ release_ctl() {
     command="$1"; shift
     elixir -e "Distillery.Releases.Runtime.Control.main" \
            --logger-sasl-reports false \
+           --vm-args "$VMARGS_PATH" \
            -- \
            "$command" "$@"
 }
